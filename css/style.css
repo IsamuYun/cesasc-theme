@@ -80,3 +80,16 @@
   padding: 0.5rem 0.75rem;
   white-space: nowrap;
 }
+
+@media (min-width: 992px) {
+  #navbar-top .region-top-header-form .navbar-nav .dropdown-menu {
+    position: absolute;
+    z-index: 1000;
+  }
+
+  #navbar-top .region-top-header-form .navbar-nav .dropdown-menu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: 0;
+  }
+}

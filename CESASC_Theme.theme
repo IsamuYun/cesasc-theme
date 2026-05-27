@@ -37,9 +37,26 @@ function CESASC_Theme_form_system_theme_settings_alter(&$form, FormStateInterfac
  * Implements hook_preprocess_page().
  */
 function CESASC_Theme_preprocess_page(&$variables) {
-  if (isset($variables['navbar_attributes']) && $variables['navbar_attributes']->hasClass('navbar-toggleable-lg')) {
-    $variables['navbar_attributes']
-      ->removeClass('navbar-toggleable-lg')
-      ->addClass('navbar-expand-lg');
+  foreach (['navbar_attributes', 'navbar_top_attributes'] as $attribute_name) {
+    if (!isset($variables[$attribute_name])) {
+      continue;
+    }
+
+    $attributes = $variables[$attribute_name];
+    if ($attributes->hasClass('navbar-toggleable-lg')) {
+      $attributes->removeClass('navbar-toggleable-lg');
+    }
+
+    $has_navbar_expand = FALSE;
+    foreach ($attributes['class'] as $class) {
+      if (str_starts_with($class, 'navbar-expand')) {
+        $has_navbar_expand = TRUE;
+        break;
+      }
+    }
+
+    if (!$has_navbar_expand) {
+      $attributes->addClass('navbar-expand-lg');
+    }
   }
 }
