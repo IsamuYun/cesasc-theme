@@ -1,0 +1,82 @@
+/**
+ * @file
+ * Subtheme specific CSS.
+ */
+
+.site-branding-custom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.site-branding-custom-logo img {
+    display: block;
+    max-height: 56px;
+    max-width: 56px;
+    width: auto;
+}
+
+.site-branding-custom-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #FFFFFF;
+    line-height: 1.2;
+}
+
+.site-branding-custom-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: inherit;
+}
+
+.site-branding-custom-slogan {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+#navbar-top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#navbar-top .region-top-header {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+#navbar-top .navbar-form {
+  margin-left: auto;
+}
+
+#navbar-top .region-top-header-form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#navbar-top .region-top-header-form > nav {
+  display: flex;
+  align-items: center;
+}
+
+#navbar-top .region-top-header-form > nav > ul.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+}
+
+#navbar-top .region-top-header-form > nav > ul.navbar-nav > .nav-item {
+  position: relative;
+}
+
+#navbar-top .region-top-header-form > nav > ul.navbar-nav > .nav-item > .nav-link {
+  padding: 0.5rem 0.75rem;
+  white-space: nowrap;
+}

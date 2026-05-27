@@ -1,0 +1,53 @@
+# OS/editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Node dependencies
+node_modules/
+
+# Package manager caches
+.npm/
+.yarn/
+.pnpm-store/
+
+# Frontend build caches
+.cache/
+.parcel-cache/
+.sass-cache/
+.eslintcache
+.stylelintcache
+
+# Source maps, optional
+*.css.map
+*.js.map
+
+# Compiled assets, only ignore if you build them from source
+# Uncomment these if your theme uses scss/js build output.
+# css/
+# js/
+# dist/
+# build/
+
+# Drupal/PHP tooling caches
+.phpunit.result.cache
+/vendor/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Temporary files
+tmp/
+temp/
