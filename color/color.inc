@@ -115,7 +115,7 @@ $info = [
   ],
 
   // Preview files.
-  'preview_library' => 'CESASC_Theme/color.preview',
+  'preview_library' => 'cesasc_theme/color.preview',
   'preview_html' => 'color/preview.html',
 
   // Attachments.
@@ -123,7 +123,7 @@ $info = [
     'drupalSettings' => [
       'color' => [
         // Put the logo path into JavaScript for the live preview.
-        'logo' => theme_get_setting('logo.url', 'CESASC_Theme'),
+        'logo' => theme_get_setting('logo.url', 'cesasc_theme'),
       ],
     ],
   ],

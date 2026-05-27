@@ -1,5 +1,5 @@
 # Schema for the configuration files of the Bootstrap Barrio Subtheme.
 
-CESASC_Theme.settings:
+cesasc_theme.settings:
   type: bootstrap_barrio.settings
-  label: 'CESASC_Theme settings'
+  label: 'cesasc_theme settings'

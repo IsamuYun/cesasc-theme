@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - CESASC_Theme
-id: CESASC_Theme_account_menu
-theme: CESASC_Theme
+    - cesasc_theme
+id: cesasc_theme_account_menu
+theme: cesasc_theme
 region: secondary_menu
 weight: -7
 provider: null

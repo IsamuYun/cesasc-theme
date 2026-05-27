@@ -6,8 +6,8 @@ core_version_requirement: ^8 || ^9 || ^10 || ^11
 base theme: bootstrap_barrio
 
 libraries:
-  - CESASC_Theme/bootstrap_cdn
-  - CESASC_Theme/global-styling
+  - cesasc_theme/bootstrap_cdn
+  - cesasc_theme/global-styling
 
 regions:
   top_header: 'Top header'

@@ -7,7 +7,7 @@
 
   'use strict';
 
-  Drupal.behaviors.CESASC_Theme = {
+  Drupal.behaviors.cesascTheme = {
     attach: function (context, settings) {
 
     }

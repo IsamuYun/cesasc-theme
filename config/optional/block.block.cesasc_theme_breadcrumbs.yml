@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - CESASC_Theme
-id: CESASC_Theme_breadcrumbs
-theme: CESASC_Theme
+    - cesasc_theme
+id: cesasc_theme_breadcrumbs
+theme: cesasc_theme
 region: breadcrumb
 weight: 0
 provider: null

@@ -14,7 +14,7 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * Example on how to alter theme settings form
  */
-function CESASC_Theme_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+function cesasc_theme_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
   $form['components']['navbar']['bootstrap_barrio_navbar_top_background']['#options'] = [
     'bg-primary' => t('Primary'),
     'bg-secondary' => t('Secondary'),
@@ -36,7 +36,7 @@ function CESASC_Theme_form_system_theme_settings_alter(&$form, FormStateInterfac
 /**
  * Implements hook_preprocess_page().
  */
-function CESASC_Theme_preprocess_page(&$variables) {
+function cesasc_theme_preprocess_page(&$variables) {
   foreach (['navbar_attributes', 'navbar_top_attributes'] as $attribute_name) {
     if (!isset($variables[$attribute_name])) {
       continue;

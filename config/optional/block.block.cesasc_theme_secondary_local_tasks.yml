@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - CESASC_Theme
-id: CESASC_Theme_secondary_local_tasks
-theme: CESASC_Theme
+    - cesasc_theme
+id: cesasc_theme_secondary_local_tasks
+theme: cesasc_theme
 region: content
 weight: -4
 provider: null

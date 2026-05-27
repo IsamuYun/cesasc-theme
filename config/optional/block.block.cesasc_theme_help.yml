@@ -4,9 +4,9 @@ dependencies:
   module:
     - help
   theme:
-    - CESASC_Theme
-id: CESASC_Theme_help
-theme: CESASC_Theme
+    - cesasc_theme
+id: cesasc_theme_help
+theme: cesasc_theme
 region: highlighted
 weight: -2
 provider: null
