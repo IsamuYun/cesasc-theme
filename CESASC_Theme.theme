@@ -32,3 +32,14 @@ function CESASC_Theme_form_system_theme_settings_alter(&$form, FormStateInterfac
     'bg-transparent' => t('Transparent'),
   ];
 }
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function CESASC_Theme_preprocess_page(&$variables) {
+  if (isset($variables['navbar_attributes']) && $variables['navbar_attributes']->hasClass('navbar-toggleable-lg')) {
+    $variables['navbar_attributes']
+      ->removeClass('navbar-toggleable-lg')
+      ->addClass('navbar-expand-lg');
+  }
+}
