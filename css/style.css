@@ -7,12 +7,13 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    padding-left: 16px;
 }
 
 .site-branding-custom-logo img {
     display: block;
-    max-height: 56px;
-    max-width: 56px;
+    max-height: 64px;
+    max-width: 64px;
     width: auto;
 }
 
@@ -47,6 +48,7 @@
   display: flex;
   align-items: center;
   flex: 0 0 auto;
+  padding-right: 1rem;
 }
 
 #navbar-top .navbar-form {
@@ -91,5 +93,73 @@
     top: 0;
     left: 100%;
     margin-top: 0;
+  }
+}
+
+.featured-news-block .view-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.featured-news-block .views-row {
+  overflow: hidden;
+}
+
+.featured-news-block .views-row:first-child {
+  grid-row: 1 / span 2;
+}
+
+.featured-news-block .views-row:first-child img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.featured-news-block .views-row:not(:first-child) img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.featured-news-block .views-field-title {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.featured-news-block .views-row:first-child .views-field-title {
+  font-size: 28px;
+}
+
+.featured-news-block .views-field-body {
+  margin-top: 8px;
+  color: #555;
+}
+
+.featured-news-block .views-row:not(:first-child) .views-field-body {
+  display: none;
+}
+移动端建议再加：
+
+@media (max-width: 768px) {
+  .featured-news-block .view-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .featured-news-block .views-row:first-child {
+    grid-row: auto;
+  }
+
+  .featured-news-block .views-row:first-child img,
+  .featured-news-block .views-row:not(:first-child) img {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .featured-news-block .views-row:first-child .views-field-title {
+    font-size: 22px;
   }
 }
