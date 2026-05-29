@@ -113,13 +113,13 @@
 
 .featured-news-block .views-row:first-child img {
   width: 100%;
-  height: 420px;
+  height: 600px;
   object-fit: cover;
 }
 
 .featured-news-block .views-row:not(:first-child) img {
   width: 100%;
-  height: 180px;
+  height: 480px;
   object-fit: cover;
 }
 
