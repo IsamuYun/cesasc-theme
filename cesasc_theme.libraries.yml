@@ -32,3 +32,13 @@ color.preview:
     color/preview.js: {}
   dependencies:
     - color/drupal.color
+accordion-hero:
+  css:
+    component:
+      css/accordion-hero.css: {}
+  js:
+    js/accordion-hero.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
