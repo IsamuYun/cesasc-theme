@@ -9,7 +9,7 @@
 {{ attach_library('cesasc_theme/accordion-hero') }}
 
 <section class="accordion-hero accordion-hero--full-bleed js-accordion-hero" aria-label="{{ 'Featured sections'|t }}">
-  <article class="accordion-hero__item is-active" style="--hero-image: url('{{ (base_path ~ directory ~ '/images/accordion-hero/science.jpeg')|e('html_attr') }}');">
+  <article class="accordion-hero__item is-active" style="--hero-image: url('{{ base_path ~ directory }}/images/accordion-hero/science.jpeg');">
     <button class="accordion-hero__trigger" type="button" aria-expanded="true" aria-controls="accordion-hero-panel-home">
       <span class="accordion-hero__number">01</span>
       <span class="accordion-hero__title">{{ 'Home'|t }}</span>
@@ -20,7 +20,7 @@
     </div>
   </article>
 
-  <article class="accordion-hero__item" style="--hero-image: url('{{ (base_path ~ directory ~ '/images/accordion-hero/engineering.jpg')|e('html_attr') }}');">
+  <article class="accordion-hero__item" style="--hero-image: url('{{ base_path ~ directory }}/images/accordion-hero/engineering.jpg');">
     <button class="accordion-hero__trigger" type="button" aria-expanded="false" aria-controls="accordion-hero-panel-about">
       <span class="accordion-hero__number">02</span>
       <span class="accordion-hero__title">{{ 'About'|t }}</span>
@@ -31,7 +31,7 @@
     </div>
   </article>
 
-  <article class="accordion-hero__item" style="--hero-image: url('{{ (base_path ~ directory ~ '/images/accordion-hero/smart-city.jpg')|e('html_attr') }}');">
+  <article class="accordion-hero__item" style="--hero-image: url('{{ base_path ~ directory }}/images/accordion-hero/smart-city.jpg');">
     <button class="accordion-hero__trigger" type="button" aria-expanded="false" aria-controls="accordion-hero-panel-work">
       <span class="accordion-hero__number">03</span>
       <span class="accordion-hero__title">{{ 'Work'|t }}</span>
@@ -47,7 +47,7 @@
     </div>
   </article>
 
-  <article class="accordion-hero__item" style="--hero-image: url('{{ (base_path ~ directory ~ '/images/accordion-hero/map.jpg')|e('html_attr') }}');">
+  <article class="accordion-hero__item" style="--hero-image: url('{{ base_path ~ directory }}/images/accordion-hero/map.jpg');">
     <button class="accordion-hero__trigger" type="button" aria-expanded="false" aria-controls="accordion-hero-panel-contact">
       <span class="accordion-hero__number">04</span>
       <span class="accordion-hero__title">{{ 'Contact'|t }}</span>

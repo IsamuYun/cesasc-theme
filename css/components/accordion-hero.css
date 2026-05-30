@@ -1,20 +1,16 @@
 .accordion-hero {
-  --accordion-hero-overlay: linear-gradient(180deg, rgba(7, 11, 16, 0.3), rgba(7, 11, 16, 0.72));
-  --accordion-hero-duration: 560ms;
-  --accordion-hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  position: relative;
-  display: flex;
-  min-height: clamp(34rem, 88svh, 58rem);
-  overflow: hidden;
-  background: #111820;
-  color: #fff;
-  isolation: isolate;
+  --accordion-hero-max-width: 1440px;
+  --accordion-hero-height: 320px;
+  width: min(100%, var(--accordion-hero-max-width));
+  height: var(--accordion-hero-height);
+  min-height: var(--accordion-hero-height);
+  margin-inline: auto;
 }
 
 .accordion-hero--full-bleed {
-  width: 100vw;
-  margin-right: calc(50% - 50vw);
-  margin-left: calc(50% - 50vw);
+  width: min(100vw, var(--accordion-hero-max-width));
+  margin-right: calc(50% - min(50vw, 720px));
+  margin-left: calc(50% - min(50vw, 720px));
 }
 
 .accordion-hero__item {
