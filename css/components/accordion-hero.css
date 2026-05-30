@@ -1,10 +1,19 @@
 .accordion-hero {
   --accordion-hero-max-width: 1440px;
   --accordion-hero-height: 320px;
+  --accordion-hero-overlay: linear-gradient(180deg, rgba(7, 11, 16, 0.3), rgba(7, 11, 16, 0.72));
+  --accordion-hero-duration: 560ms;
+  --accordion-hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  display: flex;
   width: min(100%, var(--accordion-hero-max-width));
   height: var(--accordion-hero-height);
   min-height: var(--accordion-hero-height);
   margin-inline: auto;
+  overflow: hidden;
+  background: #111820;
+  color: #fff;
+  isolation: isolate;
 }
 
 .accordion-hero--full-bleed {
