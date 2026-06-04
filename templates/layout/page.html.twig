@@ -73,11 +73,11 @@
 {% set sidebar_second_exists = page.sidebar_second|render|striptags('<img><video><audio><drupal-render-placeholder>')|trim is not empty %}
 
 {% block head %}
-        {% if page.secondary_menu or page.top_header or page.top_header_form %}
-          <nav{{ navbar_top_attributes }}>
-          {% if container_navbar %}
-          <div class="container">
-          {% endif %}
+  {% if page.secondary_menu or page.top_header or page.top_header_form %}
+    <nav{{ navbar_top_attributes }}>
+      {% if container_navbar %}
+        <div class="container">
+      {% endif %}
               {{ page.secondary_menu }}
               {{ page.top_header }}
               {% if page.top_header_form %}
