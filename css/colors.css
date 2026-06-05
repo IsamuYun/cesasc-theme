@@ -23,10 +23,12 @@ body {
 
 #navbar-top {
   background-color: #0D47A1;
+  --bs-navbar-active-color: #fff;
 }
 
 #navbar-main {
   background-color: #1d84c3;
+  --bs-navbar-active-color: #fff;
 }
 
 a,
