@@ -1,5 +1,5 @@
 .accordion-hero {
-  --accordion-hero-max-width: 1920px;
+  --accordion-hero-max-width: 1440px;
   --accordion-hero-height: 320px;
   --accordion-hero-collapsed-width: 56px;
   --accordion-hero-overlay: linear-gradient(180deg, rgba(7, 11, 16, 0.3), rgba(7, 11, 16, 0.72));
@@ -19,8 +19,8 @@
 
 .accordion-hero--full-bleed {
   width: min(100vw, var(--accordion-hero-max-width));
-  margin-right: calc(50% - min(50vw, 960px));
-  margin-left: calc(50% - min(50vw, 960px));
+  margin-right: calc(50% - min(50vw, 720px));
+  margin-left: calc(50% - min(50vw, 720px));
 }
 
 .accordion-hero__item {
