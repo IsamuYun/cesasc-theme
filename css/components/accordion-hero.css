@@ -1,7 +1,7 @@
 .accordion-hero {
   --accordion-hero-max-width: 1920px;
   --accordion-hero-height: 320px;
-  --accordion-hero-button-height: 48px;
+  --accordion-hero-collapsed-width: 56px;
   --accordion-hero-overlay: linear-gradient(180deg, rgba(7, 11, 16, 0.3), rgba(7, 11, 16, 0.72));
   --accordion-hero-duration: 560ms;
   --accordion-hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -25,13 +25,15 @@
 
 .accordion-hero__item {
   position: relative;
-  flex: 1 1 0;
+  flex: 0 0 var(--accordion-hero-collapsed-width);
   min-width: 0;
   overflow: hidden;
   background-image: var(--accordion-hero-overlay), var(--hero-image);
   background-position: center;
   background-size: cover;
-  transition: flex-grow var(--accordion-hero-duration) var(--accordion-hero-ease);
+  transition:
+    flex-basis var(--accordion-hero-duration) var(--accordion-hero-ease),
+    flex-grow var(--accordion-hero-duration) var(--accordion-hero-ease);
 }
 
 .accordion-hero__item::after {
@@ -48,7 +50,7 @@
 .accordion-hero__item.is-active,
 .accordion-hero__item:hover,
 .accordion-hero__item:focus-within {
-  flex-grow: 3;
+  flex: 1 1 0;
 }
 
 .accordion-hero__item.is-active::after,
@@ -59,31 +61,27 @@
 
 .accordion-hero__trigger {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 4;
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
+  inset: 0;
+  z-index: 2;
+  display: block;
   width: 100%;
-  height: var(--accordion-hero-button-height);
-  padding: 0 clamp(0.85rem, 1.3vw, 1.35rem);
+  padding: 0;
   color: inherit;
   text-align: left;
   cursor: pointer;
-  background: rgba(7, 11, 16, 0.68);
+  background: transparent;
   border: 0;
-  backdrop-filter: blur(8px);
 }
 
 .accordion-hero__trigger:focus-visible {
   outline: 0.18rem solid rgba(255, 255, 255, 0.92);
-  outline-offset: -0.25rem;
+  outline-offset: -0.55rem;
 }
 
 .accordion-hero__number {
-  flex: 0 0 auto;
+  position: absolute;
+  top: clamp(1rem, 2vw, 2rem);
+  left: clamp(1rem, 2vw, 2rem);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -91,23 +89,28 @@
 }
 
 .accordion-hero__title {
-  flex: 1 1 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   display: block;
-  min-width: 0;
-  overflow: hidden;
-  font-size: clamp(0.76rem, 0.85vw, 0.95rem);
+  max-width: min(78vh, 36rem);
+  font-size: clamp(1.0rem, 1.25rem, 1.5rem);
   font-weight: 700;
-  line-height: 1.1;
-  text-overflow: ellipsis;
+  line-height: 0.94;
+  text-wrap: balance;
   white-space: nowrap;
-  transform: none;
-  transition: font-size var(--accordion-hero-duration) var(--accordion-hero-ease);
+  transform: translate(-50%, -50%) rotate(90deg);
+  transform-origin: center;
+  transition:
+    top var(--accordion-hero-duration) var(--accordion-hero-ease),
+    left var(--accordion-hero-duration) var(--accordion-hero-ease),
+    transform var(--accordion-hero-duration) var(--accordion-hero-ease),
+    font-size var(--accordion-hero-duration) var(--accordion-hero-ease);
 }
 
 .accordion-hero__panel {
   position: absolute;
-  top: clamp(4rem, 8vw, 5.5rem);
-  bottom: calc(var(--accordion-hero-button-height) + 1.5rem);
+  top: calc(50% + 2rem);
   left: clamp(1.25rem, 4vw, 4.5rem);
   z-index: 3;
   width: min(48rem, calc(100% - 2.5rem));
@@ -139,7 +142,10 @@
 .accordion-hero__item.is-active .accordion-hero__title,
 .accordion-hero__item:hover .accordion-hero__title,
 .accordion-hero__item:focus-within .accordion-hero__title {
-  font-size: clamp(0.85rem, 1vw, 1.05rem);
+  top: calc(50% - 4.2rem);
+  left: clamp(1.25rem, 4vw, 4.5rem);
+  font-size: clamp(2.7rem, 5vw, 6rem);
+  transform: translate(0, -50%) rotate(0deg);
 }
 
 .accordion-hero__item.is-active .accordion-hero__panel,
