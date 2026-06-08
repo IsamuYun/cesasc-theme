@@ -1,6 +1,7 @@
 .accordion-hero {
-  --accordion-hero-max-width: 1600px;
+  --accordion-hero-max-width: 1920px;
   --accordion-hero-height: 320px;
+  --accordion-hero-button-height: 48px;
   --accordion-hero-overlay: linear-gradient(180deg, rgba(7, 11, 16, 0.3), rgba(7, 11, 16, 0.72));
   --accordion-hero-duration: 560ms;
   --accordion-hero-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -18,8 +19,8 @@
 
 .accordion-hero--full-bleed {
   width: min(100vw, var(--accordion-hero-max-width));
-  margin-right: calc(50% - min(50vw, 720px));
-  margin-left: calc(50% - min(50vw, 720px));
+  margin-right: calc(50% - min(50vw, 960px));
+  margin-left: calc(50% - min(50vw, 960px));
 }
 
 .accordion-hero__item {
@@ -58,27 +59,31 @@
 
 .accordion-hero__trigger {
   position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: block;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
   width: 100%;
-  padding: 0;
+  height: var(--accordion-hero-button-height);
+  padding: 0 clamp(0.85rem, 1.3vw, 1.35rem);
   color: inherit;
   text-align: left;
   cursor: pointer;
-  background: transparent;
+  background: rgba(7, 11, 16, 0.68);
   border: 0;
+  backdrop-filter: blur(8px);
 }
 
 .accordion-hero__trigger:focus-visible {
   outline: 0.18rem solid rgba(255, 255, 255, 0.92);
-  outline-offset: -0.55rem;
+  outline-offset: -0.25rem;
 }
 
 .accordion-hero__number {
-  position: absolute;
-  top: clamp(1rem, 2vw, 2rem);
-  left: clamp(1rem, 2vw, 2rem);
+  flex: 0 0 auto;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -86,31 +91,26 @@
 }
 
 .accordion-hero__title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  flex: 1 1 auto;
   display: block;
-  max-width: min(78vh, 36rem);
-  font-size: clamp(0.875rem, 0.875rem, 1.0rem);
+  min-width: 0;
+  overflow: hidden;
+  font-size: clamp(0.76rem, 0.85vw, 0.95rem);
   font-weight: 700;
-  line-height: 0.94;
-  text-wrap: balance;
+  line-height: 1.1;
+  text-overflow: ellipsis;
   white-space: nowrap;
-  transform: translate(-50%, -50%) rotate(90deg);
-  transform-origin: center;
-  transition:
-    top var(--accordion-hero-duration) var(--accordion-hero-ease),
-    left var(--accordion-hero-duration) var(--accordion-hero-ease),
-    transform var(--accordion-hero-duration) var(--accordion-hero-ease),
-    font-size var(--accordion-hero-duration) var(--accordion-hero-ease);
+  transform: none;
+  transition: font-size var(--accordion-hero-duration) var(--accordion-hero-ease);
 }
 
 .accordion-hero__panel {
   position: absolute;
-  top: calc(50% + 2rem);
+  top: clamp(4rem, 8vw, 5.5rem);
+  bottom: calc(var(--accordion-hero-button-height) + 1.5rem);
   left: clamp(1.25rem, 4vw, 4.5rem);
   z-index: 3;
-  width: min(28rem, calc(100% - 2.5rem));
+  width: min(48rem, calc(100% - 2.5rem));
   color: rgba(255, 255, 255, 0.92);
   opacity: 0;
   pointer-events: none;
@@ -139,10 +139,7 @@
 .accordion-hero__item.is-active .accordion-hero__title,
 .accordion-hero__item:hover .accordion-hero__title,
 .accordion-hero__item:focus-within .accordion-hero__title {
-  top: calc(50% - 4.2rem);
-  left: clamp(1.25rem, 4vw, 4.5rem);
-  font-size: clamp(2.7rem, 5vw, 6rem);
-  transform: translate(0, -50%) rotate(0deg);
+  font-size: clamp(0.85rem, 1vw, 1.05rem);
 }
 
 .accordion-hero__item.is-active .accordion-hero__panel,
@@ -155,37 +152,7 @@
 
 @media (max-width: 767.98px) {
   .accordion-hero {
-    flex-direction: column;
-    min-height: 100svh;
-  }
-
-  .accordion-hero__item {
-    flex-basis: 9rem;
-  }
-
-  .accordion-hero__item.is-active,
-  .accordion-hero__item:hover,
-  .accordion-hero__item:focus-within {
-    flex-grow: 2.2;
-  }
-
-  .accordion-hero__title,
-  .accordion-hero__item.is-active .accordion-hero__title,
-  .accordion-hero__item:hover .accordion-hero__title,
-  .accordion-hero__item:focus-within .accordion-hero__title {
-    top: clamp(2.7rem, 8vw, 4rem);
-    left: 1.25rem;
-    max-width: calc(100% - 2.5rem);
-    font-size: clamp(2rem, 11vw, 4rem);
-    white-space: normal;
-    transform: translate(0, 0) rotate(0deg);
-  }
-
-  .accordion-hero__panel {
-    top: auto;
-    bottom: 1.25rem;
-    left: 1.25rem;
-    width: min(32rem, calc(100% - 2.5rem));
+    display: none;
   }
 }
 
