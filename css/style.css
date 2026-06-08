@@ -104,11 +104,16 @@
   --news-line: #d8d9df;
   --news-accent: #2f3c7e;
   --news-gap: 28px;
+  --news-max-width: 1720px;
+  --news-page-gutter: 48px;
 
+  width: min(var(--news-max-width), calc(100vw - var(--news-page-gutter)));
+  margin-left: 50%;
   padding: 48px 0 64px;
   background: var(--news-bg);
   box-shadow: 0 0 0 100vmax var(--news-bg);
   clip-path: inset(0 -100vmax);
+  transform: translateX(-50%);
 }
 
 .featured-news-block .view-content.row {
@@ -227,6 +232,7 @@
   .featured-news-block {
     padding: 32px 0 48px;
     --news-gap: 22px;
+    --news-page-gutter: 32px;
   }
 
   .featured-news-block .view-content.row {
