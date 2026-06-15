@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Announcement views block template.
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'announcements-block',
+  ]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="announcements-block__header">
+    {{ title_prefix }}
+    <h2{{ title_attributes.addClass('announcements-block__title') }}>{{ 'Announcements'|t }}</h2>
+    {{ title_suffix }}
+
+    <a class="announcements-block__see-all" href="{{ base_path }}news">
+      {{ 'See All'|t }}
+    </a>
+  </div>
+
+  <div class="announcements-block__content">
+    {{ content }}
+  </div>
+</section>
