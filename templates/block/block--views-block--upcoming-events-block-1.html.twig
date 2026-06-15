@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Upcoming events carousel block template.
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'upcoming-events-block',
+    'js-upcoming-events-carousel',
+  ]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes.addClass('upcoming-events-block__title') }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  <div class="upcoming-events-block__carousel" data-upcoming-events-carousel>
+    <button class="upcoming-events-block__arrow upcoming-events-block__arrow--prev" type="button" aria-label="{{ 'Previous events'|t }}" data-upcoming-events-prev>
+      <span class="visually-hidden">{{ 'Previous events'|t }}</span>
+    </button>
+
+    <div class="upcoming-events-block__viewport">
+      {{ content }}
+    </div>
+
+    <button class="upcoming-events-block__arrow upcoming-events-block__arrow--next" type="button" aria-label="{{ 'Next events'|t }}" data-upcoming-events-next>
+      <span class="visually-hidden">{{ 'Next events'|t }}</span>
+    </button>
+  </div>
+</section>

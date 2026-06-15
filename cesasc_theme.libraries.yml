@@ -6,6 +6,9 @@ global-styling:
     component:
       css/style.css: {}
       css/colors.css: {}
+  dependencies:
+    - core/drupal
+    - core/once
 bootstrap:
   js:
     /libraries/popper.js/dist/umd/popper.min.js: { weight: -19 }
@@ -41,4 +44,3 @@ accordion-hero:
   dependencies:
     - core/drupal
     - core/once
-
