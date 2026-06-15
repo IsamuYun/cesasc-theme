@@ -15,11 +15,17 @@
 %}
 
 <section{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {% if label %}
-    <h2{{ title_attributes.addClass('upcoming-events-block__title') }}>{{ label }}</h2>
-  {% endif %}
-  {{ title_suffix }}
+  <div class="upcoming-events-block__header">
+    {{ title_prefix }}
+    {% if label %}
+      <h2{{ title_attributes.addClass('upcoming-events-block__title') }}>{{ label }}</h2>
+    {% endif %}
+    {{ title_suffix }}
+
+    <a class="upcoming-events-block__see-all" href="{{ base_path }}events">
+      {{ 'See All Events'|t }}
+    </a>
+  </div>
 
   <div class="upcoming-events-block__carousel" data-upcoming-events-carousel>
     <button class="upcoming-events-block__arrow upcoming-events-block__arrow--prev" type="button" aria-label="{{ 'Previous events'|t }}" data-upcoming-events-prev>
