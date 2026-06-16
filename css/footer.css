@@ -42,6 +42,8 @@
 .site-footer .field,
 .site-footer .field__item {
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .cesasc-footer-block {
