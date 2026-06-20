@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Journal shelf views block template.
+ */
+#}
+{{ attach_library('cesasc_theme/journal-shelf') }}
+
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'journal-shelf-block',
+  ]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="journal-shelf-block__inner">
+    <header class="journal-shelf-block__header">
+      {{ title_prefix }}
+      {% if label %}
+        <h2{{ title_attributes.addClass('journal-shelf-block__title') }}>{{ label }}</h2>
+      {% endif %}
+      {{ title_suffix }}
+    </header>
+
+    <div class="journal-shelf-block__content">
+      {{ content }}
+    </div>
+  </div>
+</section>

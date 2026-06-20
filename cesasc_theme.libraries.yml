@@ -45,3 +45,7 @@ accordion-hero:
   dependencies:
     - core/drupal
     - core/once
+journal-shelf:
+  css:
+    component:
+      css/components/journal-shelf.css: {}

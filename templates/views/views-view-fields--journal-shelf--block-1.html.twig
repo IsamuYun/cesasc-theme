@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * A downloadable journal card in the Journal Shelf view.
+ */
+#}
+{% if journal_cover_url %}
+  {% set title = journal_title|default('CESASC Journal'|t) %}
+  <article class="journal-shelf-card">
+    {% if journal_pdf_url %}
+      <a class="journal-shelf-card__link" href="{{ journal_pdf_url }}" download aria-label="{{ 'Download @title PDF'|t({'@title': title}) }}">
+    {% endif %}
+      <figure class="journal-shelf-card__figure">
+        <img class="journal-shelf-card__cover" src="{{ journal_cover_url }}" alt="{{ '@title cover'|t({'@title': title}) }}" width="240" height="360" loading="lazy" decoding="async">
+        <figcaption class="journal-shelf-card__caption">
+          <span class="journal-shelf-card__name">{{ title }}</span>
+          {% if journal_pdf_url %}
+            <span class="journal-shelf-card__action">{{ 'Download PDF'|t }}</span>
+          {% endif %}
+        </figcaption>
+      </figure>
+    {% if journal_pdf_url %}
+      </a>
+    {% endif %}
+  </article>
+{% else %}
+  {% for field in fields %}
+    {{ field.separator }}
+    {{ field.content }}
+  {% endfor %}
+{% endif %}

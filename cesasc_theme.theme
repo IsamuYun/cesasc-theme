@@ -5,6 +5,7 @@
  * Functions to support theming in the SASS Starterkit subtheme.
  */
 
+use Drupal\Core\Entity\FieldableEntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -59,4 +60,40 @@ function cesasc_theme_preprocess_page(&$variables) {
       $attributes->addClass('navbar-expand-lg');
     }
   }
+}
+
+/**
+ * Implements hook_preprocess_views_view_fields().
+ */
+function cesasc_theme_preprocess_views_view_fields(array &$variables) {
+  $view = $variables['view'] ?? NULL;
+
+  if (!$view || $view->id() !== 'journal_shelf' || $view->current_display !== 'block_1') {
+    return;
+  }
+
+  $entity = $variables['row']->_entity ?? NULL;
+  if (!$entity instanceof FieldableEntityInterface) {
+    return;
+  }
+
+  $variables['journal_title'] = $entity->label();
+  $variables['journal_cover_url'] = cesasc_theme_file_field_url($entity, 'field_journal_cover');
+  $variables['journal_pdf_url'] = cesasc_theme_file_field_url($entity, 'field_journal_pdf');
+}
+
+/**
+ * Returns a public URL for the first file in an entity field.
+ */
+function cesasc_theme_file_field_url(FieldableEntityInterface $entity, string $field_name): ?string {
+  if (!$entity->hasField($field_name) || $entity->get($field_name)->isEmpty()) {
+    return NULL;
+  }
+
+  $file = $entity->get($field_name)->entity;
+  if (!$file || !method_exists($file, 'getFileUri')) {
+    return NULL;
+  }
+
+  return \Drupal::service('file_url_generator')->generateString($file->getFileUri());
 }
