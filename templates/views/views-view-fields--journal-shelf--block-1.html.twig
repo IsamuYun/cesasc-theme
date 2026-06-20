@@ -1,27 +1,39 @@
 {#
 /**
  * @file
- * A downloadable journal card in the Journal Shelf view.
+ * A journal card in the Journal Shelf view.
  */
 #}
 {% if journal_cover_url %}
   {% set title = journal_title|default('CESASC Journal'|t) %}
+  {% set pdf_description = journal_pdf_description|default(title) %}
   <article class="journal-shelf-card">
     {% if journal_pdf_url %}
-      <a class="journal-shelf-card__link" href="{{ journal_pdf_url }}" download aria-label="{{ 'Download @title PDF'|t({'@title': title}) }}">
+      <a class="journal-shelf-card__cover-link"
+        href="{{ journal_pdf_url }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="{{ 'Open @title PDF in a new window'|t({'@title': title}) }}">
     {% endif %}
-      <figure class="journal-shelf-card__figure">
-        <img class="journal-shelf-card__cover" src="{{ journal_cover_url }}" alt="{{ '@title cover'|t({'@title': title}) }}" width="240" height="360" loading="lazy" decoding="async">
-        <figcaption class="journal-shelf-card__caption">
-          <span class="journal-shelf-card__name">{{ title }}</span>
-          {% if journal_pdf_url %}
-            <span class="journal-shelf-card__action">{{ 'Download PDF'|t }}</span>
-          {% endif %}
-        </figcaption>
-      </figure>
+      <img class="journal-shelf-card__cover" src="{{ journal_cover_url }}" alt="{{ '@title cover'|t({'@title': title}) }}" width="280" height="480" loading="lazy" decoding="async">
     {% if journal_pdf_url %}
       </a>
     {% endif %}
+
+    <div class="journal-shelf-card__footer">
+      {% if journal_pdf_url %}
+        <a class="journal-shelf-card__pdf-link"
+          href="{{ journal_pdf_url }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="{{ pdf_description }}"
+          aria-label="{{ 'Open @description PDF in a new window'|t({'@description': pdf_description}) }}">
+          {{ pdf_description }}
+        </a>
+      {% else %}
+        <span class="journal-shelf-card__pdf-text">{{ pdf_description }}</span>
+      {% endif %}
+    </div>
   </article>
 {% else %}
   {% for field in fields %}

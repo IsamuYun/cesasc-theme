@@ -80,12 +80,20 @@ function cesasc_theme_preprocess_views_view_fields(array &$variables) {
   $variables['journal_title'] = $entity->label();
   $variables['journal_cover_url'] = cesasc_theme_file_field_url($entity, 'field_journal_cover');
   $variables['journal_pdf_url'] = cesasc_theme_file_field_url($entity, 'field_journal_pdf');
+  $variables['journal_pdf_description'] = cesasc_theme_file_field_description(
+    $entity,
+    'field_journal_pdf',
+    $variables['journal_title'],
+  );
 }
 
 /**
  * Returns a public URL for the first file in an entity field.
  */
-function cesasc_theme_file_field_url(FieldableEntityInterface $entity, string $field_name): ?string {
+function cesasc_theme_file_field_url(
+  FieldableEntityInterface $entity,
+  string $field_name,
+): ?string {
   if (!$entity->hasField($field_name) || $entity->get($field_name)->isEmpty()) {
     return NULL;
   }
@@ -96,4 +104,29 @@ function cesasc_theme_file_field_url(FieldableEntityInterface $entity, string $f
   }
 
   return \Drupal::service('file_url_generator')->generateString($file->getFileUri());
+}
+
+/**
+ * Returns the description of the first file in an entity field.
+ */
+function cesasc_theme_file_field_description(
+  FieldableEntityInterface $entity,
+  string $field_name,
+  string $fallback,
+): string {
+  if (!$entity->hasField($field_name) || $entity->get($field_name)->isEmpty()) {
+    return $fallback;
+  }
+
+  $item = $entity->get($field_name)->first();
+  $description = trim((string) ($item->description ?? ''));
+
+  if ($description !== '') {
+    return $description;
+  }
+
+  $file = $item->entity;
+  return $file && method_exists($file, 'getFilename')
+    ? $file->getFilename()
+    : $fallback;
 }
