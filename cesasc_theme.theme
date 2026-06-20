@@ -72,19 +72,76 @@ function cesasc_theme_preprocess_views_view_fields(array &$variables) {
     return;
   }
 
+  $cover_link = cesasc_theme_extract_views_link(
+    (string) ($variables['fields']['field_journal_cover']->content ?? ''),
+  );
+  $pdf_link = cesasc_theme_extract_views_link(
+    (string) ($variables['fields']['field_journal_pdf']->content ?? ''),
+  );
+
+  $variables['journal_title'] = $pdf_link['text'] ?? 'CESASC Journal';
+  $variables['journal_cover_url'] = $cover_link['url'] ?? NULL;
+  $variables['journal_pdf_url'] = $pdf_link['url'] ?? NULL;
+  $variables['journal_pdf_description'] = $pdf_link['text'] ?? $variables['journal_title'];
+
   $entity = $variables['row']->_entity ?? NULL;
   if (!$entity instanceof FieldableEntityInterface) {
     return;
   }
 
   $variables['journal_title'] = $entity->label();
-  $variables['journal_cover_url'] = cesasc_theme_file_field_url($entity, 'field_journal_cover');
-  $variables['journal_pdf_url'] = cesasc_theme_file_field_url($entity, 'field_journal_pdf');
+  $variables['journal_cover_url'] = cesasc_theme_file_field_url($entity, 'field_journal_cover')
+    ?? $variables['journal_cover_url'];
+  $variables['journal_pdf_url'] = cesasc_theme_file_field_url($entity, 'field_journal_pdf')
+    ?? $variables['journal_pdf_url'];
   $variables['journal_pdf_description'] = cesasc_theme_file_field_description(
     $entity,
     'field_journal_pdf',
-    $variables['journal_title'],
+    $variables['journal_pdf_description'],
   );
+}
+
+/**
+ * Extracts the URL and text from a rendered Views field link.
+ */
+function cesasc_theme_extract_views_link(string $markup): ?array {
+  if (trim($markup) === '') {
+    return NULL;
+  }
+
+  $document = new DOMDocument('1.0', 'UTF-8');
+  $previous_errors = libxml_use_internal_errors(TRUE);
+  $loaded = $document->loadHTML(
+    '<meta charset="UTF-8"><div>' . $markup . '</div>',
+    LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD,
+  );
+  libxml_clear_errors();
+  libxml_use_internal_errors($previous_errors);
+
+  if (!$loaded) {
+    return NULL;
+  }
+
+  $link = $document->getElementsByTagName('a')->item(0);
+  if (!$link instanceof DOMElement) {
+    return NULL;
+  }
+
+  $url = html_entity_decode(
+    trim($link->getAttribute('href')),
+    ENT_QUOTES | ENT_HTML5,
+    'UTF-8',
+  );
+  $text = preg_replace('/\s+/u', ' ', trim($link->textContent));
+
+  if ($url === '') {
+    return NULL;
+  }
+
+  return [
+    'url' => $url,
+    'text' => $text ?: $url,
+  ];
 }
 
 /**
