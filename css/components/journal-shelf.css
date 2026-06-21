@@ -290,8 +290,7 @@
   }
 
   .journal-shelf-block__carousel {
-    grid-template-columns: 44px 44px;
-    justify-content: center;
+    grid-template-columns: minmax(0, 1fr) 44px 44px minmax(0, 1fr);
     gap: 12px;
   }
 
@@ -308,11 +307,11 @@
   }
 
   .journal-shelf-block__arrow--previous {
-    grid-column: 1;
+    grid-column: 2;
   }
 
   .journal-shelf-block__arrow--next {
-    grid-column: 2;
+    grid-column: 3;
   }
 
   .journal-shelf-block .views-row {
