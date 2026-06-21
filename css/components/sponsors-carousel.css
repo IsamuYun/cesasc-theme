@@ -1,0 +1,196 @@
+/**
+ * @file
+ * Sponsors logo-card carousel.
+ */
+
+.sponsors-carousel-block {
+  --sponsors-card-size: 180px;
+  --sponsors-accent: #234e70;
+  --sponsors-border: #d6d9dc;
+  --sponsors-text: #111;
+
+  width: min(1800px, calc(100vw - 32px));
+  margin-left: 50%;
+  padding: 48px 0 64px;
+  color: var(--sponsors-text);
+  background: #fff;
+  transform: translateX(-50%);
+}
+
+.sponsors-carousel-block__inner {
+  width: 100%;
+}
+
+.sponsors-carousel-block__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.sponsors-carousel-block__title {
+  margin: 0;
+  color: var(--sponsors-accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-wrap: pretty;
+}
+
+.sponsors-carousel-block__controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sponsors-carousel-block__button,
+.sponsors-carousel-block__toggle {
+  display: inline-flex;
+  min-width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  border-radius: 0;
+  color: var(--sponsors-text);
+  background: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition:
+    background-color 140ms ease,
+    color 140ms ease;
+}
+
+.sponsors-carousel-block__toggle {
+  min-width: 72px;
+  padding: 0 14px;
+}
+
+.sponsors-carousel-block__button:hover,
+.sponsors-carousel-block__toggle:hover {
+  color: #fff;
+  background: var(--sponsors-accent);
+}
+
+.sponsors-carousel-block__button:disabled,
+.sponsors-carousel-block__toggle:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.sponsors-carousel-block__button:focus-visible,
+.sponsors-carousel-block__toggle:focus-visible,
+.sponsors-carousel-block__card:focus-visible {
+  outline: 3px solid var(--sponsors-accent);
+  outline-offset: 3px;
+}
+
+.sponsors-carousel-block__button span {
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+
+.sponsors-carousel-block__button--previous span {
+  transform: translateX(2px) rotate(-135deg);
+}
+
+.sponsors-carousel-block__button--next span {
+  transform: translateX(-2px) rotate(45deg);
+}
+
+.sponsors-carousel-block__viewport {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.sponsors-carousel-block__track {
+  display: grid;
+  grid-auto-columns: var(--sponsors-card-size);
+  grid-auto-flow: column;
+  grid-template-rows: var(--sponsors-card-size);
+  width: max-content;
+  padding: 12px 0 24px;
+  transform: translate3d(0, 0, 0);
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.sponsors-carousel-block__item {
+  width: var(--sponsors-card-size);
+  height: var(--sponsors-card-size);
+}
+
+.sponsors-carousel-block__card {
+  position: relative;
+  display: flex;
+  width: var(--sponsors-card-size);
+  height: var(--sponsors-card-size);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  overflow: hidden;
+  border: 1px solid var(--sponsors-border);
+  color: inherit;
+  background: #fff;
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.sponsors-carousel-block__card:focus-visible {
+  outline-offset: -4px;
+}
+
+.sponsors-carousel-block__card:hover,
+.sponsors-carousel-block__card:focus-visible {
+  z-index: 1;
+  border-color: #000;
+  box-shadow: 0 8px 24px rgba(35, 78, 112, 0.14);
+  transform: translateY(-3px);
+}
+
+.sponsors-carousel-block__card img {
+  display: block;
+  width: auto !important;
+  height: auto !important;
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: contain;
+}
+
+@media (max-width: 767.98px) {
+  .sponsors-carousel-block {
+    padding: 40px 0 52px;
+  }
+
+  .sponsors-carousel-block__header {
+    align-items: flex-end;
+  }
+
+  .sponsors-carousel-block__controls {
+    gap: 6px;
+  }
+
+  .sponsors-carousel-block__toggle {
+    min-width: 64px;
+    padding: 0 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sponsors-carousel-block__track,
+  .sponsors-carousel-block__card {
+    transition: none;
+  }
+}

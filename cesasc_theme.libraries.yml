@@ -54,3 +54,12 @@ journal-shelf:
   dependencies:
     - core/drupal
     - core/once
+sponsors-carousel:
+  css:
+    component:
+      css/components/sponsors-carousel.css: {}
+  js:
+    js/sponsors-carousel.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Sponsors logo carousel block template.
+ */
+#}
+{{ attach_library('cesasc_theme/sponsors-carousel') }}
+
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'sponsors-carousel-block',
+    'js-sponsors-carousel',
+  ]
+%}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="sponsors-carousel-block__inner">
+    <header class="sponsors-carousel-block__header">
+      <div>
+        {{ title_prefix }}
+        {% if label %}
+          <h2{{ title_attributes.addClass('sponsors-carousel-block__title') }}>{{ label }}</h2>
+        {% endif %}
+        {{ title_suffix }}
+      </div>
+
+      <div class="sponsors-carousel-block__controls" aria-label="{{ 'Sponsor carousel controls'|t }}">
+        <button class="sponsors-carousel-block__button sponsors-carousel-block__button--previous" type="button" aria-label="{{ 'Previous sponsors'|t }}" data-sponsors-previous>
+          <span aria-hidden="true"></span>
+        </button>
+        <button class="sponsors-carousel-block__toggle" type="button" aria-pressed="false" data-sponsors-toggle>
+          {{ 'Pause'|t }}
+        </button>
+        <button class="sponsors-carousel-block__button sponsors-carousel-block__button--next" type="button" aria-label="{{ 'Next sponsors'|t }}" data-sponsors-next>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="sponsors-carousel-block__viewport" role="region" aria-label="{{ 'Sponsors'|t }}" data-sponsors-viewport>
+      <div class="sponsors-carousel-block__source">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</section>
