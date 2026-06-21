@@ -4,9 +4,9 @@
  */
 
 .journal-shelf-block {
-  --journal-shelf-accent: #ffd60a;
-  --journal-shelf-surface: #0d334c;
-  --journal-shelf-text: #fff;
+  --journal-shelf-accent: #234e70;
+  --journal-shelf-surface: #fff;
+  --journal-shelf-text: #1f2933;
   --journal-shelf-card: #9ca594;
   --journal-shelf-card-shadow: #596255;
   --journal-shelf-border-size: 4px;
@@ -166,6 +166,106 @@
   color: var(--journal-shelf-accent);
   outline: 2px solid var(--journal-shelf-accent);
   outline-offset: 2px;
+}
+
+.journal-shelf-block__bookcase {
+  width: 100%;
+  height: 400px;
+  margin-top: 40px;
+  overflow: hidden;
+  background-color: #8b4513;
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent 40%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, transparent 15%, transparent 75%, rgba(255, 255, 255, 0.2) 85%, rgba(0, 0, 0, 0.2) 95%, rgba(0, 0, 0, 0.28) 95%),
+    linear-gradient(to right, transparent 49%, rgba(255, 255, 255, 0.6) 49%, rgba(255, 255, 255, 0.6) 51%, transparent 51%),
+    linear-gradient(to right, transparent 47%, rgba(255, 255, 255, 0.6) 47%, rgba(255, 255, 255, 0.6) 49%, transparent 49%, transparent 51%, rgba(255, 255, 255, 0.6) 51%, rgba(255, 255, 255, 0.6) 53%, transparent 52%),
+    linear-gradient(to right, transparent 47%, rgba(255, 255, 255, 0.6) 47%, rgba(255, 255, 255, 0.6) 49%, transparent 49%, transparent 51%, rgba(255, 255, 255, 0.6) 51%, rgba(255, 255, 255, 0.6) 53%, transparent 52%),
+    radial-gradient(circle at 50% 20%, #000 2.5%, transparent 2.7%),
+    radial-gradient(circle at 33% 95.2%, rgba(0, 0, 0, 0.5) 0.5%, transparent 0.55%),
+    radial-gradient(circle at 43% 93.8%, rgba(0, 0, 0, 0.5) 0.5%, transparent 0.55%),
+    radial-gradient(circle at 57% 92.6%, rgba(0, 0, 0, 0.5) 0.5%, transparent 0.55%),
+    radial-gradient(circle at 57% 94.8%, rgba(0, 0, 0, 0.5) 0.5%, transparent 0.55%),
+    radial-gradient(circle at 70% 93.8%, rgba(0, 0, 0, 0.5) 0.5%, transparent 0.55%),
+    linear-gradient(to bottom, #fff 20%, transparent 20%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.4) 2%, transparent 2%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.4) 2%, transparent 2%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.4) 2%, transparent 2%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.4) 2%, transparent 2%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.4) 2%, transparent 2%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.4) 10%, transparent 10%),
+    linear-gradient(to right, #808080 18px, transparent 18px),
+    linear-gradient(to right, #a0522d 18px, transparent 18px),
+    linear-gradient(to right, #cd853f 18px, transparent 18px),
+    linear-gradient(to right, #fa8072 18px, transparent 18px),
+    linear-gradient(to right, #f0f 18px, transparent 18px),
+    linear-gradient(to right, #dda0dd 18px, transparent 18px),
+    linear-gradient(to right, #f0f 18px, transparent 18px),
+    linear-gradient(to right, #ee82ee 18px, transparent 18px),
+    linear-gradient(to right, #800000 18px, transparent 18px),
+    linear-gradient(to right, #7b68ee 18px, transparent 18px),
+    linear-gradient(to right, #4169e1 18px, transparent 18px),
+    linear-gradient(to right, #2b58de 18px, transparent 18px),
+    linear-gradient(to right, #00008b 18px, transparent 18px),
+    linear-gradient(to right, #1e90ff 18px, transparent 18px),
+    linear-gradient(to right, #00bfff 18px, transparent 18px),
+    linear-gradient(to right, #0000cd 18px, transparent 18px),
+    linear-gradient(to right, #4169e1 18px, transparent 18px),
+    linear-gradient(to right, #87ceeb 18px, transparent 18px),
+    linear-gradient(to right, #00ace6 18px, transparent 18px),
+    linear-gradient(to right, #00bfff 18px, transparent 18px),
+    linear-gradient(to right, #1ac5ff 18px, transparent 18px),
+    linear-gradient(to right, #b0e0e6 18px, transparent 18px),
+    linear-gradient(to right, #40e0d0 18px, transparent 18px),
+    linear-gradient(to right, #228b22 18px, transparent 18px),
+    linear-gradient(to right, #2e8b57 18px, transparent 18px),
+    linear-gradient(to right, #7fffd4 18px, transparent 18px),
+    linear-gradient(to right, #90ee90 18px, transparent 18px),
+    linear-gradient(to right, #adff2f 18px, transparent 18px),
+    linear-gradient(to right, #47c17e 18px, transparent 18px),
+    linear-gradient(to right, #32cd32 18px, transparent 18px),
+    linear-gradient(to right, #ffa500 18px, transparent 18px),
+    linear-gradient(to right, #ffd700 18px, transparent 18px),
+    linear-gradient(to right, #e69500 18px, transparent 18px),
+    linear-gradient(to right, #ff8c00 18px, transparent 18px),
+    linear-gradient(to right, #e6c200 18px, transparent 18px),
+    linear-gradient(to right, #ff6347 18px, transparent 18px),
+    linear-gradient(to right, #b22222 18px, transparent 18px),
+    linear-gradient(to right, #c71585 18px, transparent 18px),
+    linear-gradient(to right, #ff4500 18px, transparent 18px),
+    linear-gradient(to right, #dc143c 18px, transparent 18px),
+    linear-gradient(to right, #eb1f48 18px, transparent 18px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.3), transparent 20%),
+    linear-gradient(to bottom, #cd853f, #a0522d),
+    linear-gradient(transparent, rgba(0, 0, 0, 0.1)),
+    linear-gradient(rgba(0, 0, 0, 0.15), transparent);
+  background-position:
+    0 50%, 0 50%, 0 34.5%, 18px 34.5%, 36px 34.5%,
+    0 50%, 0 50%, 0 50%, 0 50%, 0 50%, 0 50%, 0 50%,
+    7px 154px, 25px 154px, 43px 154px, 61px 154px, 79px 154px, 7px 255px,
+    0 50%, 18px 50%, 36px 50%, 54px 50%, 72px 50%, 90px 50%,
+    108px 50%, 126px 50%, 144px 50%, 162px 50%, 180px 50%, 198px 50%,
+    216px 50%, 234px 50%, 252px 50%, 270px 50%, 288px 50%, 306px 50%,
+    324px 50%, 342px 50%, 360px 50%, 378px 50%, 396px 50%, 414px 50%,
+    432px 50%, 450px 50%, 468px 50%, 486px 50%, 504px 50%, 522px 50%,
+    540px 50%, 558px 50%, 576px 50%, 594px 50%, 612px 50%, 630px 50%,
+    648px 50%, 666px 50%, 684px 50%, 702px 50%, 720px 50%,
+    50% 82%, 50% 82%, 50% 20%, 50% 90%;
+  background-repeat: repeat-x;
+  background-size:
+    100% 205px, 18px 205px, 54px 4px, 54px 4px, 54px 4px,
+    18px 205px, 18px 205px, 18px 205px, 18px 205px, 18px 205px, 18px 205px,
+    18px 205px, 90px 85.4167px, 90px 58.5714px, 90px 55.4054px,
+    90px 64.0625px, 90px 42.7083px, 18px 22.7778px,
+    720px 205px, 720px 205px, 720px 205px, 720px 205px, 720px 205px,
+    720px 205px, 720px 205px, 720px 205px, 720px 205px, 720px 205px,
+    720px 205px, 720px 205px, 720px 205px, 720px 205px, 720px 205px,
+    720px 205px, 720px 205px, 720px 205px, 720px 205px, 720px 205px,
+    720px 205px, 720px 205px, 720px 205px, 720px 205px, 720px 205px,
+    720px 205px, 720px 205px, 720px 205px, 720px 205px, 720px 205px,
+    720px 205px, 720px 205px, 720px 205px, 720px 205px, 720px 205px,
+    720px 205px, 720px 205px, 720px 205px, 720px 205px, 720px 205px,
+    720px 205px,
+    100% 32px, 100% 32px, 100% 32px, 100% 32px;
 }
 
 @media (max-width: 575.98px) {
