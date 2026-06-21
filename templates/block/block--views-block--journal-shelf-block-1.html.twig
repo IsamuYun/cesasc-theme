@@ -12,6 +12,7 @@
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
     'journal-shelf-block',
+    'js-journal-shelf-carousel',
   ]
 %}
 
@@ -23,12 +24,24 @@
         <h2{{ title_attributes.addClass('journal-shelf-block__title') }}>{{ label }}</h2>
       {% endif %}
       {{ title_suffix }}
+
+      <a class="journal-shelf-block__all-link" href="{{ base_path }}journals">
+        {{ 'All Journals'|t }}
+      </a>
     </header>
 
-    <div class="journal-shelf-block__content">
-      {{ content }}
-    </div>
+    <div class="journal-shelf-block__carousel" data-journal-shelf-carousel>
+      <button class="journal-shelf-block__arrow journal-shelf-block__arrow--previous" type="button" aria-label="{{ 'Previous journals'|t }}" data-journal-shelf-previous>
+        <span aria-hidden="true"></span>
+      </button>
 
-    <div class="journal-shelf-block__bookcase" aria-hidden="true"></div>
+      <div class="journal-shelf-block__viewport">
+        {{ content }}
+      </div>
+
+      <button class="journal-shelf-block__arrow journal-shelf-block__arrow--next" type="button" aria-label="{{ 'Next journals'|t }}" data-journal-shelf-next>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
   </div>
 </section>

@@ -49,3 +49,8 @@ journal-shelf:
   css:
     component:
       css/components/journal-shelf.css: {}
+  js:
+    js/journal-shelf.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

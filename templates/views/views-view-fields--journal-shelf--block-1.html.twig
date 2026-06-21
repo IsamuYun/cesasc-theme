@@ -20,7 +20,8 @@
       </a>
     {% endif %}
 
-    <div class="journal-shelf-card__footer">
+    <div class="journal-shelf-card__info">
+      <h3 class="journal-shelf-card__title">{{ title }}</h3>
       {% if journal_pdf_url %}
         <a class="journal-shelf-card__pdf-link"
           href="{{ journal_pdf_url }}"
@@ -28,7 +29,8 @@
           rel="noopener noreferrer"
           title="{{ pdf_description }}"
           aria-label="{{ 'Open @description PDF in a new window'|t({'@description': pdf_description}) }}">
-          {{ pdf_description }}
+          <span class="journal-shelf-card__description">{{ pdf_description }}</span>
+          <span class="journal-shelf-card__action">{{ 'Open PDF'|t }}</span>
         </a>
       {% else %}
         <span class="journal-shelf-card__pdf-text">{{ pdf_description }}</span>
